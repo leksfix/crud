@@ -4,22 +4,22 @@
     <title>Example application</title>
   </head>
   <body>
-<!-- BEGIN (write your solution here) -->
-    <ul>  
-      {% for post in posts %}
+    <a href="/posts/new">Create post</a>
+
+    {% if messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    <ul>    
+    {% for post in posts %}
       <li>
-        <a href="{{ url_for('posts_show', slug=post.slug) }}">{{ post.title }}</a>
+        {{ post.title }}
       </li>
-      {% endfor %}
-  </ul>
-  <div>
-    <a href="{{ prev_page }}">Previous</a>
-    <a href="{{ next_page }}">Next</a>
-<!--
-    <a href="{{ url_for('posts_index') }}?page={{ prev_page }}">Previous</a>
-    <a href="{{ url_for('posts_index') }}?page={{ next_page }}">Next</a>
-  -->
-  </div>
-<!-- END -->
-  </body>
+    {% endfor %}
+    </ul>
+</body>
 </html>
