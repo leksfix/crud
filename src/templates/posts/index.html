@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Example application</title>
+  </head>
+  <body>
+<!-- BEGIN (write your solution here) -->
+    <ul>  
+      {% for post in posts %}
+      <li>
+        <a href="{{ url_for('posts_show', slug=post.slug) }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+  </ul>
+  <div>
+    <a href="{{ prev_page }}">Previous</a>
+    <a href="{{ next_page }}">Next</a>
+<!--
+    <a href="{{ url_for('posts_index') }}?page={{ prev_page }}">Previous</a>
+    <a href="{{ url_for('posts_index') }}?page={{ next_page }}">Next</a>
+  -->
+  </div>
+<!-- END -->
+  </body>
+</html>
