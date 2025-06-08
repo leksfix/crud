@@ -17,7 +17,15 @@
     <ul>    
     {% for post in posts %}
       <li>
-        {{ post.title }}
+        {{ post.title }} 
+        <div>
+        <a href="{{ url_for('post_update', id=post.id) }}">Edit</a> 
+        <!-- BEGIN (write your solution here) -->
+        <form action="{{ url_for('post_delete', id=post.id)}}" method="post">
+          <input type="submit" value="Delete">
+        </form>
+        <!-- END -->
+        </div>
       </li>
     {% endfor %}
     </ul>

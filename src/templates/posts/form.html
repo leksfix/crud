@@ -1,0 +1,19 @@
+<div>
+    <label>
+        Имя *
+      <input type="text" name="title" value="{{ post.title|default('') }}">
+    </label>
+      {% if errors %}
+        <div>{{ errors.title }}</div>
+      {% endif %}
+    </div>
+  <div>
+    <label>
+      Содержимое *
+    </label>
+    <textarea type="text" rows="20" cols="80" name="body">{{ post.body|default('') }}</textarea>
+      {% if errors %}
+        <div>{{ errors.body }}</div>
+      {% endif %}
+  </div>
+  
